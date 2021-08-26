@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scss tutorial</title>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Sass tutorial</title>
+</head>
+<body>
+    <h2>Sass tutorial</h2>
+    <ol>
+        <li>Install node js</li>
+        <li>Install visual studio code</li>
+        <li>VS terminal type <code>npm init</code></li>
+        <li>VS terminal type <code>npm install bootstrap</code></li>
+        <li>VS terminal type <code>npm install gulp-sass sass --save-dev</code></li>
+        <li>create a file 'gulpfile.js'</li>
+    </ol>
+    <p>
+        inside <strong> gulpfile.js</strong>
+        <pre>
+            <code>
+                const {src,dest,watch,series} = require('gulp');
+                const sass = require('gulp-sass')(require('sass'));
+
+                function buildStyle(){
+                    return src('sass/*.scss')
+                        .pipe(sass())
+                        .pipe(dest('css'))
+                }
+
+                function watchTask(){
+                    watch(['sass/*.scss'],buildStyle);
+                }
+
+                exports.default = series(buildStyle,watchTask);
+            </code>
+        </pre>
+    </p>
+</body>
+</html>
